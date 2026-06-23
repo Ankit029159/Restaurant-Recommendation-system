@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="recommendations">
+            <h1>Restaurant Recommendations</h1>
+            <p>Based on your search for <strong>{{ restaurant_name }}</strong>, here are some similar restaurants you might enjoy:</p>
+            <div class="restaurant-list">
+                {% for restaurant in recommended_restaurants %}
+                    <div class="restaurant-card">
+                        <h3>{{ restaurant }}</h3>
+                        <p>Similar to {{ restaurant_name }} based on reviews and cuisines.</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="/" class="back-btn">Search Again</a>
+        </div>
+    </div>
+</body>
+</html>
